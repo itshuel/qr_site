@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CallBook - Главная</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        background-image: url({% static 'img/back.png' %});
+      }
+    </style>
+  </head>
+  <body>
+    <img class="qrcode" src="{% static 'imgs/image.png' %}" style="width:500px;height:500px;">
+    <form>
+      {% csrf_token %}
+      <input type="text">
+    </form>
+  </body>
+</html>
