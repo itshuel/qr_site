@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.staticfiles import finders
 import cv2
@@ -7,7 +8,8 @@ import qrcode.image.svg
 from .settings import STATICFILES_DIRS
 
 def decode():
-    filename = os.path.join(STATICFILES_DIRS[0], 'image.svg')
+	# img.save(os.path.join(STATICFILES_DIRS[0], 'imgs/image.png'))
+    filename = os.path.join(STATICFILES_DIRS[0], 'imgs/image.png')
     image = cv2.imread(filename)
     detector = cv2.QRCodeDetector()
     data, vertices_array, binary_qrcode = detector.detectAndDecode(image)
@@ -20,6 +22,7 @@ def indexpage(request):
     return render(request, 'index.html')
 
 def qrpage(request):
+    flag = 'kvvu{QR}'
     if request.POST and request.POST.get('flag') == decode():
-        pass
+        return render(request, 'flag.html', {'flag': flag})
     return render(request, 'qrpage.html')
