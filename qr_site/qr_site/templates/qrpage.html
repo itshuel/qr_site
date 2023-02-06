@@ -4,20 +4,22 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CallBook - Главная</title>
+    <title>QR-Кодер - Раскодировать</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
     <style>
       body {
-        background-image: url({% static 'img/back.png' %});
+        background-image: url("{% static 'imgs/bg.png' %}");
       }
     </style>
   </head>
   <body>
-    <img class="qrcode" src="{% static 'imgs/image.png' %}" style="width:500px;height:500px;">
-    <form>
-      {% csrf_token %}
-      <input type="text">
+    <h1 class="page-title">QR-Кодер</h1>
+    <img class="qrcode-image" src="{% static 'imgs/image.png' %}">
+    <form method="post">
+      <input class="flag-input" type="text" name="flag">
+      <div class="button-under"></div>
+      <button class="button qr-button">Проверить</button>
     </form>
   </body>
 </html>

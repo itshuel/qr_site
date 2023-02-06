@@ -4,12 +4,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CallBook - Главная</title>
+    <title>QR-Кодер - Главная</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        background-image: url("{% static 'imgs/bg.png' %}");
+      }
+    </style>
   </head>
   <body>
-    <h1 class="navbar-text">Добро пожаловать на QRGen!</h1>
-    <a class="button mainpage-button" href="qr">Попробовать</a>
+    <h1 class="mainpage-title">QR-Кодер</h1>
+    <h1 class="mainpage-description">Сервис для QRования информации</h1>
+    <p class="help-text">Теперь не только от COVID-19!</p>
+    <div class="button-under"></div>
+    <a class="button" href="qr">Закодировать</a>
   </body>
 </html>
