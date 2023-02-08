@@ -22,7 +22,7 @@ def indexpage(request):
     return render(request, 'index.html')
 
 def qrpage(request):
-    flag = 'kvvu{test_flag}'
+    flag = 'kvvu{Sn4p_H1m_f4$sTeR}'
     if request.POST and request.POST.get('flag') == decode():
         return render(request, 'flag.html', {'flag': flag})
     return render(request, 'qrpage.html')

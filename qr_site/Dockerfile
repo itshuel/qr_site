@@ -1,12 +1,10 @@
 FROM python:3
 
-RUN apt-get update
-WORKDIR /srv/web
-COPY ./qr_site ./srv/web
-RUN pip install --upgrade pip
+RUN apt-get update && apt-get install libgl1 -y
+WORKDIR /srv/web/
+COPY . /srv/web/
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
 EXPOSE 8010
 
-CMD ["source", "venv/bin/activate"]
-CMD ["python", "qr_site/qrcoder.py", "&"]
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8010", '--insecure']
+ENTRYPOINT ["sh","/srv/web/run.sh"]
